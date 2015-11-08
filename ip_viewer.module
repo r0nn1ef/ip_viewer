@@ -21,6 +21,14 @@ function ip_viewer_help($path, $arg) {
 function ip_viewer_menu() {
   $items = array();
 
+  $items['admin/people/ip-addresses'] = array(
+    'title' => t('User IP Addresses'),
+    'page callback' => 'ip_viewer_list_form',
+    'file' => 'ip_viewer.admin.inc',
+    'access arguments' => array('access user ip addresses'),
+    'type' => MENU_LOCAL_TASK,
+  );
+
   return $items;
 }
 
@@ -35,6 +43,21 @@ function ip_viewer_permission() {
       'restrict access' => TRUE,
     ),
   );
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ip_viewer_form_system_ip_blocking_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($_GET['ip']) && ctype_digit($_GET['ip']) ) {
+    $ip = db_select('ip_viewer', 'i')
+      ->fields('i', array('ip_address'))
+      ->condition('i.ipid', urldecode($_GET['ip']), '=')
+      ->execute();
+
+    $form['ip']['#default_value'] = $ip->fetchField();
+    // $form['destination'] = drupal_get_destination();
+  }
 }
 
 /*
