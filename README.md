@@ -11,37 +11,33 @@
 
 INTRODUCTION
 ------------
-The 
+The IP Viewer module logs the IP address of users whenever they log in. This module is intended to help identify spammers
+and make blocking their IP addresses easier for administrators.
 
 REQUIREMENTS
 ------------
 
 This module requires the following modules:
 
- * Views (https://drupal.org/project/views)
- * Panels (https://drupal.org/project/panels)
+
 
 RECOMMENDED MODULES
 -------------------
 
- * Markdown filter (https://www.drupal.org/project/markdown):
-   When enabled, display of the project's README.md help will be rendered
-   with markdown.
+ * Flood Control (https://www.drupal.org/project/flood_control):
+   When enabled, Flood Control gives you browser-based access to the hidden Drupal flood control variables.
 
  INSTALLATION
  ------------
 
-  * Install as you would normally install a contributed Drupal module. See:
-    https://drupal.org/documentation/install/modules-themes/modules-7
-    for further information.
-
-  * You may want to disable Toolbar module, since its output clashes with
-    Administration Menu.
+* Install as you would normally install a contributed Drupal module. See:
+  https://drupal.org/documentation/install/modules-themes/modules-7
+  for further information.
 
 CONFIGURATION
 -------------
 
- * Configure user permissions in Administration » People » Permissions:
+* Configure user permissions in Administration » People » Permissions:
 
    - Use the administration pages and help (System module)
 
