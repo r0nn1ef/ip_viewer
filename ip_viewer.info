@@ -1,0 +1,3 @@
+name = Ip Viewer
+description = Tracks user IP addresses when they log in.
+core = 7.x
