@@ -1,0 +1,67 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ronald
+ * Date: 11/7/15
+ * Time: 19:17
+ */
+
+function ip_viewer_install() {
+
+}
+
+function ip_viewer_uninstall() {
+
+}
+
+function ip_viewer_schema() {
+  $t = get_t();
+
+  $schema = array(
+    'ip_viewer' => array(
+      'description' => $t(''),
+      'fields' => array(
+        'ipid' => array(
+          'description' => 'The primary identifier for an IP address entry.',
+          'type' => 'serial',
+          'unsigned' => TRUE,
+          'not null' => TRUE
+        ),
+        'uid' => array(
+          'description' => 'The {user} UID for this IP address whom logged in.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+          'default' => 0
+        ),
+        'ip_address' => array(
+          'description' => 'The IP address from which the user logged in.',
+          'type' => 'varchar',
+          'length' => 32,
+          'not null' => TRUE,
+          'default' => ''
+        ),
+        'created' => array(
+          'description' => 'The Unix timestamp when the IP address log was created.',
+          'type' => 'int',
+          'not null' => TRUE,
+          'default' => 0
+        ),
+        'changed' => array(
+          'description' => 'The Unix timestamp when the IP address log was changed.',
+          'type' => 'int',
+          'not null' => TRUE,
+          'default' => 0
+        ),
+      ),
+      'indexes' => array(
+        'idx_user' => array('uid'),
+        'idx_ip_address' => array('ip_address'),
+        'idx_created' => array('created'),
+      ),
+      'primary key' => array('ipid'),
+    ),
+  );
+
+  return $schema;
+}
