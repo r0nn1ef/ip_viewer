@@ -36,3 +36,8 @@ function ip_viewer_permission() {
     ),
   );
 }
+
+/*
+ * Include file with all user related hook implementations.
+ */
+require_once dirname( __FILE__ ) . '/ip_viewer.user.inc';
