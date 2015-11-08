@@ -2,4 +2,4 @@ name = IP Viewer
 description = The IP Viewer module logs the IP address of users whenever they log in. This module is intended to help identify spammers and make blocking their IP addresses easier for administrators.
 package = Administration
 core = 7.x
-version = 7.x-1.0
+version = 7.x-1.1
